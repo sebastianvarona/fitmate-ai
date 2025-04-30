@@ -66,7 +66,10 @@ class CreateAiRoutineService
   # The LLM client.
   # @return [Langchain::LLM::Ollama] the LLM client
   def llm
-    @llm ||= Langchain::LLM::Ollama.new(url: "http://localhost:11434", default_options: { chat_model: DEFAULT_MODEL_NAME })
+    @llm ||= Langchain::LLM::OpenAI.new(
+      api_key: ENV["OPENAI_API_KEY"],
+      default_options: { temperature: 0.7, chat_model: "gpt-4o-mini" }
+    )
   end
 
   # Find or create the Routine on which add the new context.

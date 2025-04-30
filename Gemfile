@@ -71,3 +71,5 @@ gem "simple_command", "~> 1.0"
 gem "langchainrb", "~> 0.19.4"
 
 gem "requestjs-rails"
+
+gem "ruby-openai", "~> 8.1"
