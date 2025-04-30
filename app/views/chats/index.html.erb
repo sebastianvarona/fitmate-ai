@@ -1,6 +1,9 @@
-<h1 class="my-8 text-4xl font-semibold">Conversaciones</h1>
+<% content_for :title, "Mis Conversaciones" %>
+
+<%= render "components/title" %>
 
 <ul class="list bg-base-100 rounded-box shadow-md">
+  <% if @chats.empty? %> <%= render "components/empty_space", content: "No hay conversaciones iniciadas..." %><% end %>
   <% @chats.each do |chat| %>
     <li class="list-row">
       <div class="text-4xl font-thin opacity-30 tabular-nums"><%= chat.id %></div>

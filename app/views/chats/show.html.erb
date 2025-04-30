@@ -1,5 +1,7 @@
 <h1 class="mt-8 text-4xl font-semibold"><%= @chat.title %></h1>
 
+  <%= link_to "Eliminar", @chat, data: { turbo_method: :delete, turbo_confirm: "Esta acción es permanente. Estás seguro que deseas eliminar esta rutina?" },  class: "btn absolute right-4 top-4" %>
+
 <section data-controller="post-question">
   <ul data-post-question-target="chat" class="w-full mt-8 space-y-3 mb-32">
     <% @chat.messages.each do |message| %>

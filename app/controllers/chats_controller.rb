@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chat, only: %i[show]
+  before_action :set_chat, only: %i[show destroy]
 
   def index
     @chats = Chat.all.where(user: current_user).order(id: :desc)
@@ -16,6 +16,12 @@ class ChatsController < ApplicationController
     )
     @chat = response.result.chat
     redirect_to @chat
+  end
+
+  def destroy
+    @chat.destroy!
+
+    redirect_to chats_path
   end
 
   def create_message
