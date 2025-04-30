@@ -4,11 +4,17 @@
 @source "../../../app/javascript/**/*.js";
 @source "../../../app/views/**/*";
 
+@plugin "@tailwindcss/typography";
+
 @plugin "./daisyui.js" {
-  themes: light --default, dark --prefersdark, abyss;
+  themes: light --default, dark --prefersdark, silk;
 }
 
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */
 @plugin "./daisyui-theme.js"{
   /* custom theme here */
+}
+
+* {
+  font-family: 'Figtree', sans-serif;
 }

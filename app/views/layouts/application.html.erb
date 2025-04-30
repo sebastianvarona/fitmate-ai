@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="abyss">
+<html data-theme="silk">
   <head>
     <title><%= content_for(:title) || "Rails Fitmate" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,14 +16,18 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:300,400,500,600" rel="stylesheet" />
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p><%= notice %></p>
+    <p><%= alert %></p>
 
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+    <main class="flex">
+      <% if user_signed_in? %> <%= render "components/sidebar" %> <% end %>
+      <div id="scroll_content" class="px-8 flex-1 max-h-screen overflow-y-auto relative"> <%= yield %> </div>
     </main>
   </body>
 </html>
