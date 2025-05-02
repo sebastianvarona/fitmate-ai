@@ -146,12 +146,13 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.11.3)
-    json-schema (4.3.1)
-      addressable (>= 2.8)
-    langchainrb (0.19.4)
+    json-schema (5.1.1)
+      addressable (~> 2.8)
+      bigdecimal (~> 3.1)
+    langchainrb (0.19.5)
       baran (~> 0.1.9)
       csv
-      json-schema (~> 4)
+      json-schema (>= 4, < 6)
       matrix
       pragmatic_segmenter (~> 0.3.0)
       zeitwerk (~> 2.5)
@@ -215,7 +216,7 @@ GEM
     psych (5.2.3)
       date
       stringio
-    public_suffix (6.0.1)
+    public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -389,7 +390,7 @@ DEPENDENCIES
   hotwire-spark
   importmap-rails
   jbuilder
-  langchainrb (~> 0.19.4)
+  langchainrb (~> 0.19.5)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   requestjs-rails
