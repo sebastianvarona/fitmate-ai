@@ -68,6 +68,6 @@ gem "faraday", "~> 2.13"
 
 gem "simple_command", "~> 1.0"
 
-gem "langchainrb", "~> 0.19.4"
+gem "langchainrb", "~> 0.19.5"
 
 gem "requestjs-rails"
