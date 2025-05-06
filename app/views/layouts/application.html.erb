@@ -24,7 +24,7 @@
   <body>
     <main class="flex">
       <% if user_signed_in? %> <%= render "components/sidebar" %> <% end %>
-      <div id="scroll_content" class="px-8 flex-1 max-h-screen overflow-y-auto relative"> <%= yield %> </div>
+      <div id="scroll_content" class="px-8 flex-1 max-h-screen bg-base-200 overflow-y-auto relative"> <%= yield %> </div>
     </main>
 
     <% if alert || notice %>

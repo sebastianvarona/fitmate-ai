@@ -2,7 +2,7 @@
 
 <%= render "components/title" %>
 
-<ul class="list bg-base-100 rounded-box shadow-md">
+<ul class="list bg-base-100 rounded-box shadow-md mb-40">
   <% if @chats.empty? %> <%= render "components/empty_space", content: "No hay conversaciones iniciadas..." %><% end %>
   <% @chats.each do |chat| %>
     <li class="list-row">
