@@ -1,0 +1,13 @@
+<h1>Progreso físico</h1>
+
+<% if @progresses.any? %>
+  <ul>
+    <% @progresses.each do |progress| %>
+      <li><strong><%= progress.recorded_on %>:</strong> <%= progress.weight %> kg</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No has registrado ningún progreso aún.</p>
+<% end %>
+
+<%= link_to "Nuevo progreso", new_progress_path, class: "btn btn-primary" %>

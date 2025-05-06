@@ -1,0 +1,31 @@
+import { Controller } from "@hotwired/stimulus"
+import { post } from '@rails/request.js'
+
+// Connects to data-controller="weekday-select"
+export default class extends Controller {
+  static values = {
+    selectedDays: String,
+    day: String,
+    url: String
+  }
+
+  static targets = ["input"]
+
+  async connect() {
+    if (!this.selectedDaysValue) {
+      this.selectedDaysValue = "[]"
+    }
+    const url = this.urlValue
+
+    const selectedDays = JSON.parse(this.selectedDaysValue)
+    const checked = +this.inputTarget.value
+    console.log(selectedDays, this.dayValue, checked)
+    console.log(Turbo)
+
+    return
+    const response = await post(url, { body: `{ "${this.dayValue}": ${checked} }` })
+    if (response.ok) {
+      const { answer } = await response.json
+    }
+  }
+}

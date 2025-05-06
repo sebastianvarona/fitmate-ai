@@ -1,0 +1,35 @@
+<%= form_with model: progress, local: true do |f| %>
+  <div>
+    <%= f.label :recorded_on, "Fecha" %><br>
+    <%= f.date_field :recorded_on %>
+  </div>
+
+  <div>
+    <%= f.label :weight, "Peso (kg)" %><br>
+    <%= f.number_field :weight, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :waist, "Cintura (cm)" %><br>
+    <%= f.number_field :waist, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :hips, "Cadera (cm)" %><br>
+    <%= f.number_field :hips, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :chest, "Pecho (cm)" %><br>
+    <%= f.number_field :chest, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :photo_url, "URL de la Foto (Firebase)" %><br>
+    <%= f.text_field :photo_url %>
+  </div>
+
+  <div>
+    <%= f.submit "Guardar Progreso", class: "btn btn-primary mt-2" %>
+  </div>
+<% end %>
