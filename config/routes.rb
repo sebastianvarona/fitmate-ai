@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :routines do
     post "set_wday", on: :member
   end
+
+  resources :progresses
 end

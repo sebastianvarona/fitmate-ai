@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_04_30_060912) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_06_035059) do
   create_table "chats", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title"
@@ -26,6 +26,21 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_30_060912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.float "weight"
+    t.float "height"
+    t.float "chest"
+    t.float "arms"
+    t.float "waist"
+    t.float "hip"
+    t.float "thighs"
+    t.float "calves"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_progresses_on_user_id"
   end
 
   create_table "routines", force: :cascade do |t|
@@ -53,5 +68,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_30_060912) do
 
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"
+  add_foreign_key "progresses", "users"
   add_foreign_key "routines", "users"
 end

@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :chats, -> { order(id: :desc) }, dependent: :delete_all
   has_many :routines, -> { order(id: :desc) }, dependent: :delete_all
+  has_many :progresses, -> { order(id: :desc) }, dependent: :delete_all
 end
