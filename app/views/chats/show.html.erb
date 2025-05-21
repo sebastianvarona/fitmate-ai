@@ -14,10 +14,19 @@
     <% end %>
   </ul>
 
-  <div class="fixed bottom-0 right-0 left-64 bg-base-200/50 backdrop-blur z-10 px-4 pt-4 pb-8 border-t border-border">
-    <label class="input w-full">
-      <input type="search" class="grow" placeholder="Haz otra consulta..." data-post-question-target="input" data-action="keyup.enter->post-question#submit" data-url="<%= create_message_chat_path(@chat) %>" />
-      <kbd class="kbd kbd-sm">Enter ⏎</kbd>
+  <div class="fixed bottom-0 left-64 right-0 bg-white/90 backdrop-blur-sm z-50 px-6 py-4 border-t border-gray-300 shadow-lg">
+    <label class="input w-full flex items-center gap-3">
+      <input
+        type="search"
+        class="grow input input-bordered text-lg px-5 py-4 rounded-full shadow placeholder:italic placeholder:text-gray-400"
+        placeholder="Escribe tu consulta sobre gimnasio..."
+        data-post-question-target="input"
+        data-action="keyup.enter->post-question#submit"
+        data-url="<%= create_message_chat_path(@chat) %>"
+      />
+      <kbd class="kbd px-4 py-2 text-sm bg-gray-100 text-gray-600 shadow rounded-lg">
+        ⏎ Enter
+      </kbd>
     </label>
   </div>
 </section>
