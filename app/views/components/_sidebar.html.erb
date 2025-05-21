@@ -1,39 +1,33 @@
 <div class="flex h-screen flex-col w-64 justify-between border-e border-border bg-base-200">
-  <div class="px-4 py-6">
-    <span class="grid h-10 w-32 place-content-center rounded-lg font-semibold text-3xl">
-      FitMate
-    </span>
-
-    <ul class="mt-6 space-y-1">
-      <li>
-        <%= link_to "Conversaciones", chats_path, class: active_link(chats_path) %>
-      </li>
-
-      <li>
-        <%= link_to "Rutinas", routines_path, class: active_link(routines_path) %>
-      </li>
-
-      <li>
-        <%= link_to "Progreso", progresses_path, class: active_link(progresses_path) %>
-      </li>
-    </ul>
-  </div>
-
-  <div class="sticky inset-x-0 bottom-0 border-t border-border">
-    <%= button_to destroy_user_session_path, method: :delete, class: "flex items-center gap-2 bg-base-300 p-4 hover:bg-base-200 w-full cursor-pointer" do %>
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        class="size-10 rounded-full object-cover hidden"
-      />
-
-      <div>
-        <p class="text-xs">
-          <strong class="hidden block font-medium">Eric Frusciante</strong>
-
-          <span><%= current_user.email %></span>
-        </p>
-      </div>
+  <nav class="space-y-2 p-4">
+    <%= link_to chats_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(chats_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8.5L4.5 19A2.5 2.5 0 012 16.5v-9A2.5 2.5 0 014.5 5H19.5A2.5 2.5 0 0122 7.5v9a2.5 2.5 0 01-2.5 2.5H14l-3 3z"/>
+      </svg>
+      <span>Conversaciones</span>
     <% end %>
+
+    <%= link_to routines_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(routines_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6a4 4 0 014-4h5m-9 0h2a2 2 0 002-2V5a2 2 0 00-2-2H9a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <span>Rutinas</span>
+    <% end %>
+
+    <%= link_to progresses_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(progresses_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17l6-6 4 4 6-6"/>
+      </svg>
+      <span>Progreso</span>
+    <% end %>
+  </nav>
+
+  <div class="sticky inset-x-0 bottom-0 border-t border-border p-4 space-y-2">
+    <div class="text-sm text-gray-600">
+      <span class="block font-semibold"><%= current_user.email %></span>
+    </div>
+
+    <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete,
+        class: "btn btn-outline btn-sm w-full text-red-600 border-red-300 hover:bg-red-50" %>
   </div>
 </div>
