@@ -1,21 +1,30 @@
 <div class="flex h-screen flex-col w-64 justify-between border-e border-border bg-base-200">
   <nav class="space-y-2 p-4">
     <%= link_to chats_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(chats_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+   <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8.5L4.5 19A2.5 2.5 0 012 16.5v-9A2.5 2.5 0 014.5 5H19.5A2.5 2.5 0 0122 7.5v9a2.5 2.5 0 01-2.5 2.5H14l-3 3z"/>
       </svg>
       <span>Conversaciones</span>
     <% end %>
 
     <%= link_to routines_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(routines_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      
+    
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6a4 4 0 014-4h5m-9 0h2a2 2 0 002-2V5a2 2 0 00-2-2H9a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
       <span>Rutinas</span>
     <% end %>
 
+  
+
+
     <%= link_to progresses_path, class: "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition #{current_page?(progresses_path) ? 'bg-primary/10 text-primary font-semibold' : 'text-gray-700'}" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17l6-6 4 4 6-6"/>
       </svg>
       <span>Progreso</span>

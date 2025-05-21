@@ -24,26 +24,30 @@ class ChatsController < ApplicationController
     redirect_to chats_path
   end
 
-  def create_message
-    response = CreateAiChatMessageService.call(
-      prompt: params[:prompt],
-      ai_chat_id: params[:id]
-    )
+ def create
+  prompt = params[:prompt].to_s.strip
 
-    if response.success?
-      render json: {
-        success: true,
-        question: response.result.prompt,
-        answer: response.result.answer
-      }
-    else
-      render json: { success: false, error: response.errors.full_messages.join(", ") },
-             status: :unprocessable_entity
-    end
-  rescue StandardError => e
-    render json: { success: false, error: e.message },
-           status: :internal_server_error
+  if prompt.blank?
+    flash[:alert] = "El mensaje no puede estar vacío."
+    redirect_to chats_path
+    return
   end
+
+  response = CreateAiChatMessageService.call(
+    prompt: prompt,
+    user_id: current_user.id
+  )
+
+  if response.result.present? && response.result.respond_to?(:chat)
+    @chat = response.result.chat
+    redirect_to @chat, notice: "Chat creado con éxito"
+  else
+    flash[:alert] = "No se pudo crear el chat. Intenta nuevamente."
+    redirect_to chats_path
+  end
+end
+
+
 
   private
 
