@@ -3,7 +3,7 @@
 <section class="flex items-center justify-between">
   <%= render "components/title" %>
 
-    <%= link_to "Actualizar progreso", new_progress_path, class: "btn btn-primary" %>
+    <%= link_to "Actualizar progreso", new_progress_path, class: "btn btn-primary btn-lg px-6 py-4 text-lg shadow-lg drawer-button" %>
 </section>
 
 <% unless @progresses.empty? %>
@@ -21,6 +21,10 @@
       <% end %>
     </ul>
   <% else %>
-    <%= render "components/empty_space", content: "No tienes ningun progreso creado." %>
+   <%= render "components/empty_space",
+            content: "No tienes ningún progreso creado.",
+            cta: link_to("¡Registrar ahora!", new_progress_path, class: "text-blue-600 hover:underline font-medium") %>
+
+    
   <% end %>
 </div>

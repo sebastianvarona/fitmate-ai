@@ -17,12 +17,17 @@
   <% end %>
 </ul>
 
-<div class="fixed bottom-0 right-0 left-64 bg-base-200/50 backdrop-blur z-10 px-4 pt-4 pb-8 border-t border-border">
-  <%= form_with method: :post, url: chats_path, html: { class: "quote form" } do |f| %>
-    <label class="input w-full">
-      <%= f.search_field :prompt, autofocus: true, class: "grow", placeholder: "Pregunta lo que sea..." %>
-      <kbd class="kbd kbd-sm">Enter ⏎</kbd>
-    </label>
-  <% end %>
+<div class="fixed bottom-0 left-64 right-0 bg-white/70 backdrop-blur-sm z-20 px-6 py-4 border-t border-gray-300 shadow-lg">
+  <%= form_with method: :post, url: chats_path, html: { class: "flex items-center gap-4" } do |f| %>
 
+    <!-- Campo de texto -->
+    <%= f.search_field :prompt, autofocus: true,
+        class: "input input-bordered w-full text-lg px-5 py-4 rounded-full shadow-md placeholder:italic placeholder:text-gray-400",
+        placeholder: "Escribe tu pregunta acerca de gimnasio aquí..." %>
+
+  
+
+  <% end %>
 </div>
+
+

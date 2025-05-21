@@ -15,6 +15,11 @@
   /* custom theme here */
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
   font-family: 'Figtree', sans-serif;
 }

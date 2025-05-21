@@ -1,5 +1,9 @@
 <% content ||= "No hay elementos para mostrar..." %>
 
-<div class="h-40 border border-dashed rounded-box flex items-center justify-center font-medium">
-  <%= content %>
+<div class="h-40 border border-dashed rounded-box flex flex-col items-center justify-center text-center font-medium space-y-2 px-4">
+  <p class="text-gray-600"><%= content %></p>
+
+  <% if local_assigns[:cta].present? %>
+    <div class="text-sm"><%= cta %></div>
+  <% end %>
 </div>

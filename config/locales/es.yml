@@ -1,0 +1,19 @@
+es:
+  activerecord:
+    models:
+      progress: "Progreso"
+    attributes:
+      progress:
+        weight: "Peso"
+        chest: "Pecho"
+        arms: "Brazos"
+        waist: "Cintura"
+        hip: "Cadera"
+        thighs: "Muslos"
+        calves: "Pantorrillas"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "no puede estar vacío"
+      not_a_number: "debe ser un número válido"
+      greater_than: "debe ser mayor que %{count}"
