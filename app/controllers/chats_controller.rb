@@ -10,6 +10,12 @@ class ChatsController < ApplicationController
   end
 
   def create
+
+    if params[:prompt].blank?
+    render json: { success: false, error: "El chat está vacío" }, status: :unprocessable_entity
+    return
+  end
+
     response = CreateAiChatMessageService.call(
       prompt: params[:prompt],
       user_id: current_user.id

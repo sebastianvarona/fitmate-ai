@@ -42,16 +42,30 @@ class RoutinesController < ApplicationController
     redirect_to @routine
   end
 
-  def create
-    response = CreateAiRoutineService.call(
-      context: params[:routine][:context],
-      title: params[:routine][:title],
-      user_id: current_user.id
-    )
-    puts response.result
-    @routine = response.result
-    redirect_to @routine
+ def create
+  response = CreateAiRoutineService.call(
+    context: params[:routine][:context],
+    title: params[:routine][:title],
+    user_id: current_user.id
+  )
+
+  @routine = response.result
+
+  if @routine.present? && @routine.persisted?
+    redirect_to @routine, notice: "Rutina creada con éxito"
+  else
+    flash[:alert] = "La rutina no fue creada. Revisa los datos ingresados o intenta de nuevo."
+    @routine ||= Routine.new(routine_params) # para que el formulario pueda mostrar lo que el usuario ingresó
+    render :new, status: :unprocessable_entity
   end
+end
+
+private
+
+def routine_params
+  params.require(:routine).permit(:context, :title)
+end
+
 
   private
 

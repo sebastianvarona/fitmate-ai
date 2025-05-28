@@ -6,13 +6,22 @@
     <!-- Page content here -->
     <div class="flex justify-between items-center">
       <%= render "components/title" %>
+<label for="my-drawer-4" class="btn btn-primary btn-lg px-6 py-4 text-lg shadow-lg drawer-button">
+   Nueva rutina
+</label>
 
-      <label for="my-drawer-4" class="drawer-button btn btn-primary">Nueva rutina</label>
+    
+
+
     </div>
+
+   
 
     <h3 class="font-semibold text-2xl mb-4"><%= weekday %>:</h3>
     <ul class="list bg-success/50 rounded-box shadow-md">
-      <% if @today.empty? %> <%= render "components/empty_space", content: "Hoy es dia de descanso!" %><% end %>
+      <% if @today.empty? %> <%= render "components/empty_space", content: "Hoy es un merecido descanso 🧘‍♂️💤" %>
+
+<% end %>
       <% @today.each do |routine| %>
         <li class="list-row">
           <div class="text-4xl font-thin opacity-50 tabular-nums"><%= routine.id %></div>
@@ -30,7 +39,8 @@
 
     <h3 class="font-semibold text-2xl mb-4">Otras rutinas</h3>
     <ul class="list bg-base-100 rounded-box shadow-md">
-      <% if @other.empty? %> <%= render "components/empty_space", content: "No hay rutinas disponibles..." %><% end %>
+      <% if @other.empty? %> <%= render "components/empty_space", content: "Aún no has creado ninguna rutina. ¡Presiona <strong>“Nueva rutina”</strong> para empezar!".html_safe %>
+<% end %>
       <% @other.each do |routine| %>
         <li class="list-row">
           <div class="text-4xl font-thin opacity-30 tabular-nums"><%= routine.id %></div>
