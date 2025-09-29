@@ -64,7 +64,7 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "faraday", "~> 2.13"
+gem "faraday", "~> 2.14"
 
 gem "simple_command", "~> 1.0"
 
